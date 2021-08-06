@@ -2,9 +2,11 @@ package com.example.codingchallenge.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.bumptech.glide.Glide
 import com.example.codingchallenge.R
 import kotlinx.android.synthetic.main.activity_details.*
@@ -15,9 +17,35 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
+        customActionBar()
         displayResultDetails()
         displayImage()
+
     }
+
+    override fun onSupportNavigateUp():Boolean {
+        onBackPressed()
+        return true
+    }
+
+    //Set custom actionBar
+    //Showing the back button in action bar.
+    fun customActionBar(){
+
+        //calling the action bar.
+        val actionBar = supportActionBar
+
+        //showing the back button in action bar.
+        if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setDisplayShowHomeEnabled(true)
+            actionBar.setTitle("Details")
+
+        }
+
+    }
+
+    // Display information from Main Activity to Details Activity...
 
     fun displayResultDetails(){
         val artisttrackname = intent.getStringExtra("trackname")

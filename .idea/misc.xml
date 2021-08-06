@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/junju/Documents/iTunesAPI/app/src/main/res/layout/abs_layout.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/junju/Documents/iTunesAPI/app/src/main/res/layout/activity_details.xml" value="0.25" />
+        <entry key="..\:/Users/junju/Documents/iTunesAPI/app/src/main/res/layout/activity_main.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/junju/Documents/iTunesAPI/app/src/main/res/layout/movie_item.xml" value="0.1" />
         <entry key="..\:/Users/junju/Downloads/CodingChallenge/app/src/main/res/layout/activity_details.xml" value="0.25" />
         <entry key="..\:/Users/junju/Downloads/CodingChallenge/app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="..\:/Users/junju/Downloads/CodingChallenge/app/src/main/res/layout/movie_item.xml" value="0.14673913043478262" />

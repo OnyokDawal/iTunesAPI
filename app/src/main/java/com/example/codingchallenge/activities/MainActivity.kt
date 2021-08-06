@@ -19,15 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerview_movie_list.layoutManager = LinearLayoutManager(this)
-        recyclerview_movie_list.setHasFixedSize(true)
-        getMovieData {
-            movies : List<ModelResult> ->
-            recyclerview_movie_list.adapter = MovieAdapter(movies)
-        }
-
+        viewResult()
+        customActionBar()
     }
 
+    // Getting data from view model
     private fun getMovieData(callback: (List<ModelResult>) -> Unit) {
 
         val apiService = ApiService.getInstance().create(ApiInterface::class.java)
@@ -44,4 +40,33 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    //Recyclerview from getting data from View model
+
+    fun viewResult(){
+
+        recyclerview_movie_list.layoutManager = LinearLayoutManager(this)
+        recyclerview_movie_list.setHasFixedSize(true)
+        getMovieData {
+                movies : List<ModelResult> ->
+            recyclerview_movie_list.adapter = MovieAdapter(movies)
+        }
+
+    }
+
+    //Set custom actionBar
+    //Showing the back button in action bar.
+    fun customActionBar(){
+
+        //calling the action bar.
+        var actionBar = supportActionBar
+
+        //showing the back button in action bar.
+        if(actionBar != null){
+            actionBar.setTitle("Movie")
+
+        }
+
+    }
+
 }

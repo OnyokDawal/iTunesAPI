@@ -32,6 +32,7 @@ class MovieAdapter (
                 .error(R.drawable.erroricon)
                 .into(itemView.imageview_artwork)
 
+
             if(result.trackName.isNullOrEmpty()){
                 itemView.textviewtrackname.text = "Could not load track name data!"
             } else{
@@ -51,16 +52,24 @@ class MovieAdapter (
             }
 
             if(result.description.isNullOrBlank()){
-                itemView.containerld.text = "a sodales arcu. Nullam tempus at orci in efficitur.Fusce eu ipsum eget mi aliquam iaculis. Donec eget ex risus. Aenean condimentum mi at ipsum semper tempus. Etiam elementum sem felis, vel auctor mauris luctus eget. Nulla tempus et"
+                itemView.textviewdescription.text = "Could not load track description data!"
             } else{
-                itemView.containerld.text = result.description
+                itemView.textviewdescription.text = "Description: " + result.description
+
+
+
+            }
+
+            if(result.longDescription.isNullOrBlank()){
+                itemView.containerld.text = "a sodales arcu. Nullam tempus at orci in efficitur.Fusce eu ipsum eget mi aliquam iaculis. Donec eget ex risus. Aenean condimentum mi at ipsum semper tempus. Etiam elementum sem felis, vel auctor m.\n" +
+                        "                a sodales arcu. Nullam tempus at orci in efficitur.Fusce eu ipsum eget mi aliquam iaculis. Donec eget ex risus. Aenean condimentum mi at ipsum semper tempus. Etiam elementum sem felis, vel auctor m\n" +
+                        "                    a sodales arcu. Nullam tempus at orci in efficitur.Fusce eu ipsum eget mi aliquam iaculis. Donec eget ex risus. Aenean condimentum mi at ipsum semper tempus. Etiam elementum sem felis, vel auctor m\n" +
+                        "                a sodales arcu. Nullam tempus at orci in efficitur.Fusce eu ipsum eget mi aliquam iaculis. Donec eget ex risus. Aenean condimentum mi at ipsum semper tempus. Etiam elementum sem felis, vel auctor m"
+            } else{
+                itemView.containerld.text = result.longDescription
             }
 
 
-
-
-
-            itemView.containerld.text = result.description
             itemView.containeraw.text = result.artworkUrl100.toString()
             itemView.setOnClickListener {
 
@@ -69,8 +78,6 @@ class MovieAdapter (
                 val trackprice = itemView.textviewprice.text
                 val tracklongdescription = itemView.containerld.text
                 val artworkurl = itemView.containeraw.text
-
-
 
                 intent.putExtra("trackname",trackname)
                 intent.putExtra("genre",trackgenre)
